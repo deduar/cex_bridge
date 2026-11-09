@@ -1,0 +1,49 @@
+networks:
+  cex:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.28.0.0/16
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: cex
+      POSTGRES_PASSWORD: cex_dev
+      POSTGRES_DB: cex
+    ports: ["5432:5432"]
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U cex -d cex"]
+      interval: 2s
+      timeout: 3s
+      retries: 20
+    networks: [cex]
+
+  redis:
+    image: redis:7-alpine
+    ports: ["6379:6379"]
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 2s
+      timeout: 3s
+      retries: 20
+    networks: [cex]
+
+  gateway:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports: ["8080:8080"]
+    depends_on:
+      postgres: { condition: service_healthy }
+      redis: { condition: service_healthy }
+    networks: [cex]
+    environment:
+      DATABASE_URL: postgres://cex:cex_dev@postgres:5432/cex
+      REDIS_URL: redis://redis:6379
+
+volumes:
+  pgdata:
