@@ -14,3 +14,15 @@
 - M4 Redis order book + WS
 - M5 gateway + mock KYC + JWT
 - M6 seed + demo script + recording
+
+## M3 — Matching engine
+- in-memory order book + price-time matching
+- test: services/matching/matching_test.go
+
+## M3 probe
+- POST /orders buy then sell -> match returned (amount 4 @ 100)
+- endpoints: /health, /orders, /orderbook
+
+## M4 — WebSocket feed
+- /ws endpoint upgrades; /orders broadcasts matches to clients
+- deps: gorilla/websocket (go-redis listed for M5)
