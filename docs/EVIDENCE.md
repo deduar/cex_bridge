@@ -29,3 +29,8 @@
 
 ## M5 — Mock KYC + auth
 - /register (mock KYC approved) and /login; bearer token required on /orders
+
+## M6 — Seed + demo
+- scripts/seed.sh creates alice/bob
+- docs/DEMO.md records 3-5 min demo flow
+- POC complete: docker compose up --build + seed + probe

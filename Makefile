@@ -1,2 +1,2 @@
 seed:
-	@echo "seed not implemented yet"
+	bash scripts/seed.sh
