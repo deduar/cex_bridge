@@ -26,3 +26,6 @@
 ## M4 — WebSocket feed
 - /ws endpoint upgrades; /orders broadcasts matches to clients
 - deps: gorilla/websocket (go-redis listed for M5)
+
+## M5 — Mock KYC + auth
+- /register (mock KYC approved) and /login; bearer token required on /orders
