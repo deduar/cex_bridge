@@ -1,0 +1,34 @@
+# Binaries
+*.exe
+*.dll
+*.so
+*.dylib
+cex-poc
+
+# Go
+vendor/
+
+# Docker
+.env
+.env.local
+
+# Data
+data/
+pgdata/
+redisdata/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+*.log
+logs/
+
+# Temp
+tmp/
+temp/

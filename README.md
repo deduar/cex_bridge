@@ -28,6 +28,6 @@ Go (matching engine), PostgreSQL (RLS), Redis (order book), Docker Compose.
 No admin dashboard, fiat ramps, real KYC provider, Kafka, or Kubernetes in this POC. Documented as production targets.
 
 ## Docs
-- `DECISIONS.md` — anchors and decisions
+- `.planning/DECISIONS.md` — anchors and decisions
 - `.planning/` — DISCOVER / EXPLORE / PLAN / KISS / SUMMARY
 # cex_bridge
