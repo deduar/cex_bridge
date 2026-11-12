@@ -1,4 +1,4 @@
-# CEX POC — P2P to CEX Migration Demo
+Repo: https://github.com/deduar/cex_bridge
 
 POC demonstrating the hardest part of migrating a P2P trading system to a centralized exchange (CEX): **matching engine + double-entry ledger + real-time order book**.
 
